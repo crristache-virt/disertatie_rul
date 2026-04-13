@@ -1,13 +1,21 @@
 {
   "name": "disertatie-rul-dev",
-  "dockerFile": "Dockerfile",
-  "settings": {
-    "python.defaultInterpreterPath": "/usr/local/bin/python"
+  "build": {
+    "dockerfile": "Dockerfile",
+    "context": ".."
   },
-  "extensions": [
-    "ms-python.python",
-    "ms-toolsai.jupyter"
-  ],
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "python.defaultInterpreterPath": "/usr/local/bin/python",
+        "jupyter.notebookFileRoot": "${containerWorkspaceFolder}"
+      },
+      "extensions": [
+        "ms-python.python",
+        "ms-toolsai.jupyter"
+      ]
+    }
+  },
   "forwardPorts": [],
-  "postCreateCommand": "pip install -r requirements.txt"
+  "postCreateCommand": "pip install -r requirements.txt && mkdir -p data_local"
 }

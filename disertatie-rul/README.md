@@ -16,6 +16,12 @@ This project aims to analyze the Backblaze SMART HDD dataset and build machine l
 - Notebooks will print instructions if the dataset is missing (no automatic download).
 - Run notebooks in order for a complete pipeline demonstration.
 
+## Running The RUL Baseline
+- Place the quarterly datasets in `data_local/` or set the `DATA_DIR` environment variable.
+- Expected files: `q1_rul_dataset.csv` or `.parquet`, `q2_rul_dataset.csv` or `.parquet`, `q3_rul_dataset.csv` or `.parquet`, `q4_rul_dataset.csv` or `.parquet`
+- Run the baseline pipeline with `python run_rul_baseline.py`
+- The script concatenates the quarterly datasets, performs a serial-number-based train/validation/test split, and evaluates baseline regression models for RUL prediction.
+
 ## Repository Structure
 - `src/`: Modular pipeline code (config, io, cleaning, preprocessing, features, labeling, split, models, evaluation, utils)
 - `data/`: Place Backblaze SMART dataset files here
